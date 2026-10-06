@@ -1,0 +1,46 @@
+﻿@using ShopingApp.Models;
+@* @model ShopingApp.Models.Student;
+<h1>@Model.Name</h1>
+<h2>@Model.College</h2>
+<p>@Model.Department</p>
+<p>@Model.Degree</p> *@
+   <form method="post">
+    @Html.EditorForModel()
+    <input asp-action="SaveData" asp-controller="Home" name="SaveData" value="SaveData" type="submit" />
+      <input asp-action="UpdateData" asp-controller="Home" name="UpdateData" value="UpdateData" type="submit" />
+       <input asp-action="DeleteData" asp-controller="Home" name="DeleteData" value="DeleteData" type="submit" />
+    </form>
+
+
+@* @{
+    <h1>@TempData.Peek("College")</h1>
+}
+   
+
+@{
+  
+    <h1>@ViewData["Name"]</h1>
+}
+
+@{
+    List<Employee> data = (List<Employee>)@ViewData["ListOfEmployee"];
+    foreach (var item in data)
+    {
+        <h1>@item.EmpName</h1>
+    }
+}
+    <main class="container my-5">
+
+        <div class="text-center">
+            <h1>Welcome to My Website</h1>
+
+            <p class="lead">
+                This is a simple Bootstrap webpage.
+            </p>
+
+            <button class="btn btn-primary">
+                Get Started
+            </button>
+        </div> *@
+
+    </main>
