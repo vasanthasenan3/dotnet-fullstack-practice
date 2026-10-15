@@ -1,0 +1,389 @@
+﻿@model ShopingApp.Models.reg
+
+<style>
+    body {
+        margin: 0;
+        background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+        background-size: 300% 300%;
+        animation: gradientMove 10s ease infinite;
+    }
+
+    .register-page {
+        min-height: 100vh;
+        padding: 50px 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .register-card {
+        animation: cardAppear 0.8s ease-out;
+        border: 0;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .register-header {
+        background: linear-gradient(135deg, #4f46e5, #9333ea, #ec4899);
+        color: white;
+        padding: 35px 25px;
+        text-align: center;
+    }
+
+    .register-icon {
+        font-size: 55px;
+        animation: floating 3s ease-in-out infinite;
+    }
+
+    .register-header h2 {
+        font-weight: 800;
+        margin-top: 10px;
+    }
+
+    .register-header p {
+        opacity: 0.85;
+    }
+
+    .register-body {
+        background: rgba(255, 255, 255, 0.97);
+        padding: 40px;
+    }
+
+    .form-control {
+        border-radius: 12px;
+        padding: 12px 15px;
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.2);
+            border-color: #6366f1;
+        }
+
+    .form-label {
+        font-weight: 600;
+        color: #343a40;
+    }
+
+    .register-btn {
+        border: 0;
+        border-radius: 12px;
+        padding: 13px;
+        font-size: 17px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #6366f1, #9333ea);
+        transition: all 0.3s ease;
+    }
+
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        }
+
+    .clear-btn {
+        border-radius: 12px;
+        padding: 12px;
+        transition: all 0.3s ease;
+    }
+
+        .clear-btn:hover {
+            transform: translateY(-2px);
+        }
+
+    .validation-message {
+        display: block;
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        animation: errorAppear 0.3s ease;
+    }
+
+    .form-check-input:checked {
+        background-color: #6366f1;
+        border-color: #6366f1;
+    }
+
+    .register-footer {
+        background: #f8f9fa;
+        text-align: center;
+        padding: 18px;
+    }
+
+    @@keyframes gradientMove {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    @@keyframes cardAppear {
+        from {
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    @@keyframes floating {
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @@keyframes errorAppear {
+        from {
+            opacity: 0;
+            transform: translateX(-5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+</style>
+
+
+<div class="register-page">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-md-10 col-lg-8 col-xl-7">
+
+                <div class="card register-card">
+
+                    <!-- HEADER -->
+
+                    <div class="register-header">
+
+                        <div class="register-icon">
+                            📝
+                        </div>
+
+                        <h2>
+                            Create Your Account
+                        </h2>
+
+                        <p class="mb-0">
+                            Join us by creating your account
+                        </p>
+
+                    </div>
+
+
+                    <!-- BODY -->
+
+                    <div class="register-body">
+
+                        <form asp-action="Register"
+                              asp-controller="Home"
+                              method="post">
+
+
+                            <!-- NAME -->
+
+                            <div class="mb-4">
+
+                                <label asp-for="Name"
+                                       class="form-label">
+                                    👤 Full Name
+                                </label>
+
+                                <input asp-for="Name"
+                                       class="form-control"
+                                       placeholder="Enter your full name" />
+
+                                <span asp-validation-for="Name"
+                                      class="text-danger validation-message">
+                                </span>
+
+                            </div>
+
+
+                            <!-- EDUCATION -->
+
+                            <div class="mb-4">
+
+                                <label asp-for="Education"
+                                       class="form-label">
+                                    🎓 Education
+                                </label>
+
+                                <input asp-for="Education"
+                                       class="form-control"
+                                       placeholder="Example: B.E Mechanical Engineering" />
+
+                                <span asp-validation-for="Education"
+                                      class="text-danger validation-message">
+                                </span>
+
+                            </div>
+
+
+                            <!-- FIELD -->
+
+                            <div class="mb-4">
+
+                                <label asp-for="FieldOfStudy"
+                                       class="form-label">
+                                    📚 Field of Study
+                                </label>
+
+                                <input asp-for="FieldOfStudy"
+                                       class="form-control"
+                                       placeholder="Enter your department" />
+
+                                <span asp-validation-for="FieldOfStudy"
+                                      class="text-danger validation-message">
+                                </span>
+
+                            </div>
+
+
+                            <!-- EMAIL -->
+
+                            <div class="mb-4">
+
+                                <label asp-for="Email"
+                                       class="form-label">
+                                    📧 Email Address
+                                </label>
+
+                                <input asp-for="Email"
+                                       class="form-control"
+                                       placeholder="example@gmail.com" />
+
+                                <span asp-validation-for="Email"
+                                      class="text-danger validation-message">
+                                </span>
+
+                            </div>
+
+
+                            <!-- MOBILE -->
+
+                            <div class="mb-4">
+
+                                <label asp-for="MobileNo"
+                                       class="form-label">
+                                    📱 Mobile Number
+                                </label>
+
+                                <input asp-for="MobileNo"
+                                       class="form-control"
+                                       placeholder="Enter your mobile number" />
+
+                                <span asp-validation-for="MobileNo"
+                                      class="text-danger validation-message">
+                                </span>
+
+                            </div>
+
+
+                            <!-- PROFILE -->
+
+                            <div class="mb-4">
+
+                                <label asp-for="Profile"
+                                       class="form-label">
+                                    ✨ About You
+                                </label>
+
+                                <textarea asp-for="Profile"
+                                          class="form-control"
+                                          rows="4"
+                                          placeholder="Tell us something about yourself..."></textarea>
+
+                                <span asp-validation-for="Profile"
+                                      class="text-danger validation-message">
+                                </span>
+
+                            </div>
+
+
+                            <!-- TERMS -->
+
+                            <div class="form-check mb-4">
+
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       id="terms"
+                                       required />
+
+                                <label class="form-check-label"
+                                       for="terms">
+                                    I agree to the terms and conditions
+                                </label>
+
+                            </div>
+
+
+                            <!-- BUTTONS -->
+
+                            <div class="d-grid gap-3">
+
+                                <button type="submit"
+                                        class="btn btn-primary register-btn">
+
+                                    🚀 Create Account
+
+                                </button>
+
+                                <button type="reset"
+                                        class="btn btn-outline-secondary clear-btn">
+
+                                    Clear Form
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- FOOTER -->
+
+                    <div class="register-footer">
+
+                        <span class="text-muted">
+                            Already have an account?
+                        </span>
+
+                        <a href="#"
+                           class="text-primary fw-bold text-decoration-none">
+
+                            Login
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
