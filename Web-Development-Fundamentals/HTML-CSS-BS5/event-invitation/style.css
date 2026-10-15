@@ -1,0 +1,76 @@
+.head
+{
+
+text-align: center;
+}
+.head h1
+{
+
+margin-bottom: 0;
+}
+.head p
+{
+    color: grey;
+    margin-top: 0;
+    padding-right: 43px;
+}
+.content
+{
+text-align: center;
+}
+.content h1
+{
+ padding-left: 25px;
+}
+h1 span
+{
+    color: green;
+}
+.content p
+{
+    font-size: larger;
+   color: black;
+font-family: Arial, Helvetica, sans-serif;
+    padding-left: 26px;
+}
+.container
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-left: 50px;
+}
+.Box
+{
+    width: 350px;
+    height: 200px;
+    background-color: #f5f7fa;
+    border: 2px solid lightgreen;
+    border-radius: 25px;
+    text-align: center;
+    padding: 20px;
+}
+.Box h2
+{
+    font-size: 40px;
+}
+.Box p
+{
+    font-size: 18px;
+}
+.bottom
+{
+    text-align: center;
+    font-weight: bold;
+}
+body {
+    
+background-image: url(HTIMG.jpg);
+background-repeat: no-repeat;
+background-position: right;
+background-attachment: fixed;
+}
+
+
+
+
